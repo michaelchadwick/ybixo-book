@@ -3,8 +3,8 @@
 Our programs so far have dealt entirely with types native to Oxiby.
 These have mostly been scalar types like `String` and `Boolean`, but we've also seen compound types like `List` and `HashMap`.
 If we want to create our own types to model data in our programs, there are two options available.
-The first are __structs__, which is short for __structures__.
-We might also hear the same concept described as __records__, __objects__, or __product types__ in other languages.
+The first are **structs**, which is short for **structures**.
+We might also hear the same concept described as **records**, **objects**, or **product types** in other languages.
 A struct is a single type that is made up of multiple pieces of data.
 Each of these constituent pieces has a name associated with it. Here's an example:
 
@@ -155,7 +155,7 @@ However, `new` is a coventional name that most programmers will find unsurprisin
 
 There are two other kinds of structs we can create.
 
-The first is called a __tuple struct__.
+The first is called a **tuple struct**.
 The difference from the main form of struct is that the fields are not named.
 They are defined like this:
 

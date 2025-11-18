@@ -8,8 +8,8 @@ Important technical terms are indicated by bold text.
 
 Examples:
 
-* __Abstraction__ is the process of generalizing rules and concepts from specific examples.
-* A field is optionally prefixed with a __visibility__.
+* **Abstraction** is the process of generalizing rules and concepts from specific examples.
+* A field is optionally prefixed with a **visibility**.
 
 ## Emphasis
 

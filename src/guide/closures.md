@@ -1,7 +1,7 @@
 # Sharing behavior with closures
 
 Program logic in Oxiby lives in functions, but there's another kind of function we haven't seen yet.
-It's called a __closure__, or alternatively an __anonymous function__.
+It's called a **closure**, or alternatively an **anonymous function**.
 These functions are anonymous, because unlike the ones we've seen so far, they don't have names.
 They're called closures because they "close over" their environment, which we'll see in a moment.
 
@@ -74,7 +74,7 @@ If we want to, we can specify the type of `s` using the same syntax as a regular
 
 ## Environment capture
 
-The other reason closures are useful is that they __capture their environment__.
+The other reason closures are useful is that they **capture their environment**.
 What this means is that they "remember" local variables that were in scope at the location they were defined, even if they are called in a different location.
 To demonstrate:
 

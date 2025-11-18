@@ -15,8 +15,8 @@ fn read_line() -> Result<String, String>
 ```
 
 `read_line` returns a value of the type `Result`.
-`Result` is a __generic type__, which means it can take different forms depending on the types it's used with.
-It's also a compound type called an __enum__ (short for __enumeration__), which is one of the two user-definable types in Oxiby.
+`Result` is a **generic type**, which means it can take different forms depending on the types it's used with.
+It's also a compound type called an **enum** (short for **enumeration**), which is one of the two user-definable types in Oxiby.
 We'll explore generics more in a future chapter.
 For now, let's focus on what an enum is and why it's useful here.
 

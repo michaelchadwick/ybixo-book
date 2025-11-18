@@ -23,12 +23,9 @@ Modules beginning with the path `std` are reserved for Oxiby's standard library.
 There can't be two items in a module with the same name, so if there's a name conflict, imports must be renamed with the `->` operator:
 
 ```oxiby
-use library_a Result -> AResult
-use library_b Result -> BResult
+use library_a Name -> AName
+use library_b Name -> BName
 ```
-
-This is often needed in cases like the above example where two libraries both have their own result type and they are both named `Result`.
-(These would both be distinct from Oxiby's built-in `Result` type that we've seen before.)
 
 There's a special "module" called `self` that allows us to create aliases to items defined in the current module.
 This is handy for using enum variants without naming the enum:
