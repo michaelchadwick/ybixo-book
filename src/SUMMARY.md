@@ -1,6 +1,7 @@
 # Summary
 
 [Introduction](README.md)
+[Oxiby compared to Rust and Ruby](comparison.md)
 [Conventions](conventions.md)
 [Installation](installation.md)
 
