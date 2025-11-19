@@ -3,7 +3,7 @@ use std.ops Add
 struct ShoppingList {
     map: HashMap<String, Integer>,
 
-    fn create() -> Self {
+    fn new() -> Self {
         ShoppingList {
             map: HashMap.new(),
         }
@@ -32,11 +32,11 @@ impl Add for ShoppingList {
 }
 
 fn main() {
-    let shopping_list_a = ShoppingList.create()
+    let shopping_list_a = ShoppingList.new()
     shopping_list_a.map["apple"] = 3
     shopping_list_a.map["carrot"] = 1
 
-    let shopping_list_b = ShoppingList.create()
+    let shopping_list_b = ShoppingList.new()
     shopping_list_b.map["banana"] = 1
     shopping_list_b.map["carrot"] = 1
 

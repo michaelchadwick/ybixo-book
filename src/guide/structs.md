@@ -148,9 +148,6 @@ However, `new` is a coventional name that most programmers will find unsurprisin
 > **Warning: The `Self` type alias is not yet available.
 > The version of the above program found in the examples directory uses `ShoppingList` to account for this.**
 
-> **Warning: Currently, a static function named `new` _does_ have a special meaning and cannot be used for constructors.
-> The version of the above program found in the examples directory uses `create` instead to account for this.**
-
 ## Tuple structs
 
 There are two other kinds of structs we can create.

@@ -213,9 +213,6 @@ Finally, a new `ShoppingList` with the new hash map is constructed and returned.
 > **Warning: The `Add` trait is not yet mapped to the `+` operator.
 > The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.**
 
-> **Warning: Currently, a static function named `new` has special meaning and cannot be used for constructors.
-> The version of the above program found in the examples directory uses `create` instead to account for this.**
-
 > **Warning: The `Self` type alias is not yet available.
 > The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.**
 
@@ -292,9 +289,6 @@ As such, the two example programs in this chapter cannot currently be combined i
 
 > **Warning: The `Add` trait is not yet mapped to the `+` operator.
 > The version of the above program found in the examples directory uses a method `add` on `ShoppingList` instead to account for this.**
-
-> **Warning: Currently, a static function named `new` has special meaning and cannot be used for constructors.
-> The version of the above program found in the examples directory uses `create` instead to account for this.**
 
 > **Warning: The `Self` type alias is not yet available.
 > The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.**

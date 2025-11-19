@@ -228,9 +228,6 @@ A field should be private if it could be made invalid as it could with our shopp
 > **Warning: Currently, importing from a module does not automatically build that module.
 > Each dependent module must be built individually with `obc build`.**
 
-> **Warning: Currently, a static function named `new` has special meaning and cannot be used for constructors.
-> The version of the above program found in the examples directory uses `create` instead to account for this.**
-
 > **Warning: The `Self` type alias is not yet available.
 > The version of the above program found in the examples directory uses `ShoppingList` instead to account for this.**
 

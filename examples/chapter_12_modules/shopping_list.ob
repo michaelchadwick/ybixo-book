@@ -1,7 +1,7 @@
 pub struct ShoppingList {
     map: HashMap<String, Integer>,
 
-    pub fn create() -> Self {
+    pub fn new() -> Self {
         ShoppingList {
             map: HashMap.new(),
         }
