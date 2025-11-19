@@ -4,8 +4,8 @@ fn identity(value: t) -> t {
 
 fn main() {
     let one = identity(1)
-    let oxiby = identity("Oxiby")
+    let ybixo = identity("Ybixo")
 
     print_line(one)
-    print_line(oxiby)
+    print_line(ybixo)
 }

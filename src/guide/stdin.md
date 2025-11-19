@@ -3,7 +3,7 @@
 While our greeting using conditionals could do different things based on who we were greeting, the same branch of code was executed every time because the input to the program never changed.
 Let's change the program to greet whomever is named by the user.
 
-```oxiby
+```ybixo
 // File: examples/chapter_04_stdin/hello_world.ob
 
 use std.io read_line
@@ -11,7 +11,7 @@ use std.io read_line
 fn greet() -> String {
     print("> ")
 
-    let name = read_line().unwrap_or("Oxiby").trim_end()
+    let name = read_line().unwrap_or("Ybixo").trim_end()
 
     "Hello, #{name}!"
 }
@@ -43,15 +43,15 @@ A few new concepts are introduced here.
 
 ## Imports
 
-```oxiby
+```ybixo
 use path.to.module function_to_import
 ```
 
 Functions can be imported from other modules.
-A module is just a file containing Oxiby source code.
+A module is just a file containing Ybixo source code.
 A function is imported with the keyword `use`, followed by the path to a module, followed by the name of the function to import.
 
-Modules beginning with the path segment `std` are the standard library, a special collection of modules provided by Oxiby.
+Modules beginning with the path segment `std` are the standard library, a special collection of modules provided by Ybixo.
 
 ## The `print` function
 
@@ -60,7 +60,7 @@ We use this to indicate a prompt for user input, allowing the user to type on th
 
 ## Reading from standard input
 
-```oxiby
+```ybixo
 let input = read_line()
 ```
 
@@ -71,14 +71,14 @@ This allows our program to change behavior each time it's run depending on diffe
 
 ## Methods
 
-```oxiby
+```ybixo
 value.method()
 ```
 
 A method is a function that "belongs" to a type.
 Up until now, we had only called "free" functions, which look like this:
 
-```oxiby
+```ybixo
 example()
 ```
 
@@ -87,7 +87,7 @@ This is done by by writing the value, followed by a dot, followed by the usual f
 The method receives the value as its first argument.
 We can think of these two forms as equivalent:
 
-```oxiby
+```ybixo
 function(value)
 value.function()
 ```
@@ -102,7 +102,7 @@ Similarly, the `unwrap_or` method returns a value, and again we use the `.` oper
 
 ## Fallible functions
 
-```oxiby
+```ybixo
 read_line.unwrap_or("default")
 ```
 

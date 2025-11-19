@@ -1,30 +1,30 @@
-# Oxiby compared to Rust and Ruby
+# Ybixo compared to Rust and Ruby
 
-Oxiby is very similar to Rust, but produces Ruby source code rather than native code.
-Why might you use Oxiby over Rust or Ruby?
+Ybixo is very similar to Rust, but produces Ruby source code rather than native code.
+Why might you use Ybixo over Rust or Ruby?
 
-Since Oxiby is an experimental language in early development, if you're writing a program for production deployment, the answer is that _you shouldn't_.
+Since Ybixo is an experimental language in early development, if you're writing a program for production deployment, the answer is that _you shouldn't_.
 But if you're interested in learning and experimenting, there are a few fundamental trade-offs.
 
 ## Compared to Rust
 
-Oxiby's syntax and feature set are quite similar to Rust.
-The biggest difference is that Oxiby is not a systems programming language.
+Ybixo's syntax and feature set are quite similar to Rust.
+The biggest difference is that Ybixo is not a systems programming language.
 That means it does not offer the programmer explicit features for memory management and other low-level operations.
 It's intended for high-level programs that would otherwise have been suitable for a language like Ruby or Python.
 
-Oxiby also lacks one of Rust's distinguishing features, the tracking of reference lifetimes.
-Since Oxiby is executed by the Ruby interpreter, data is generally stored on the heap and garbage collected.
+Ybixo also lacks one of Rust's distinguishing features, the tracking of reference lifetimes.
+Since Ybixo is executed by the Ruby interpreter, data is generally stored on the heap and garbage collected.
 
 Closely related to reference tracking is another key feature of Rust's type system: [move semantics](https://en.wikipedia.org/wiki/Substructural_type_system#Affine_type_systems), which allows "ownership" of a value to be moved from one place to another, preventing its use at the original place.
-Oxiby has no equivalent to this behavior.
+Ybixo has no equivalent to this behavior.
 
-Oxiby is also not strict about the mutability of values.
-This means that Oxiby programs are not protected from data races, whereas in Rust they are prevented statically.
+Ybixo is also not strict about the mutability of values.
+This means that Ybixo programs are not protected from data races, whereas in Rust they are prevented statically.
 
-Finally, because Oxiby produces Ruby source code rather than native code, Rust programs will be signficantly more performant.
+Finally, because Ybixo produces Ruby source code rather than native code, Rust programs will be signficantly more performant.
 
-If you like Rust's type system and feature set, but aren't writing a program that needs manual memory management, strict protection of immutable data, or maximal performance, Oxiby should be easier to use.
+If you like Rust's type system and feature set, but aren't writing a program that needs manual memory management, strict protection of immutable data, or maximal performance, Ybixo should be easier to use.
 
 Specific examples of some of the differences between the two languages follow.
 
@@ -39,9 +39,9 @@ fn main() {
 }
 ```
 
-Oxiby has no such control.
+Ybixo has no such control.
 All data is allocated on the heap.
-This makes Oxiby easier to use because you don't need to think about the distinction and all types can be dynamically sized.
+This makes Ybixo easier to use because you don't need to think about the distinction and all types can be dynamically sized.
 However, this comes with a performance trade-off, since the bookkeeping required to manage heap memory has a cost.
 
 ### References and mutability
@@ -62,9 +62,9 @@ fn main() {
 }
 ```
 
-In Oxiby, there are neither explicit references nor is there a way to mark a name as immutable, so a working equivalent would be:
+In Ybixo, there are neither explicit references nor is there a way to mark a name as immutable, so a working equivalent would be:
 
-```oxiby
+```ybixo
 struct Container(String);
 
 fn change_container_contents(container: Container) {
@@ -78,7 +78,7 @@ fn main() {
 }
 ```
 
-This means that Oxiby is easier to write, because you don't need to keep track of references and mutability.
+This means that Ybixo is easier to write, because you don't need to keep track of references and mutability.
 The trade-off is that you can introduce bugs by mutating data that should be immutable.
 
 ### Move semantics
@@ -95,9 +95,9 @@ fn main() {
 }
 ```
 
-Oxiby's type system does not include this behavior, so the equivalent program will run:
+Ybixo's type system does not include this behavior, so the equivalent program will run:
 
-```oxiby
+```ybixo
 fn move_data(data: String) {}
 
 fn main() {
@@ -108,35 +108,35 @@ fn main() {
 ```
 
 Move semantics are an important part of the system that provides Rust programs memory safety.
-Since Oxiby is executed by the Ruby interpreter, which uses garbage collection, programs are still memory safe, even without move semantics.
+Since Ybixo is executed by the Ruby interpreter, which uses garbage collection, programs are still memory safe, even without move semantics.
 
 ## Compared to Ruby
 
-Oxiby doesn't have much superficial similarity to Ruby.
-The biggest difference between the two is that Oxiby is statically typed.
-This means that Oxiby will statically eliminate many classes of errors that happen at runtime in Ruby programs.
+Ybixo doesn't have much superficial similarity to Ruby.
+The biggest difference between the two is that Ybixo is statically typed.
+This means that Ybixo will statically eliminate many classes of errors that happen at runtime in Ruby programs.
 
-On the flip side, Oxiby programs are greatly constrained in terms of the dynamic behavior that is possible in Ruby.
+On the flip side, Ybixo programs are greatly constrained in terms of the dynamic behavior that is possible in Ruby.
 A primary is example is metaprogramming.
-Oxiby does not have a macro system, so there is no equivalent of Ruby's metaprogramming facilities, such as dynamic method definition and execution.
+Ybixo does not have a macro system, so there is no equivalent of Ruby's metaprogramming facilities, such as dynamic method definition and execution.
 
 Ruby does not support file-scoped code.
 A Ruby program written across multiple files will simply "require" one file from another, and the code in both files are executed in the same global, mutable namespace.
-Oxiby has a module system in which files are isolated from each other and items from other files are brought into scope with explicit imports.
+Ybixo has a module system in which files are isolated from each other and items from other files are brought into scope with explicit imports.
 This improves local reasoning and makes name conflicts explicit.
 
-Ruby uses exception-based error handling, while Oxiby uses value-based error handling.
-This makes it easier to get a quick prototype working in Ruby, but it will be susceptible to runtime errors that would not be possible in Oxiby.
-Additionally, it is easier to reason about failure cases in Oxiby.
+Ruby uses exception-based error handling, while Ybixo uses value-based error handling.
+This makes it easier to get a quick prototype working in Ruby, but it will be susceptible to runtime errors that would not be possible in Ybixo.
+Additionally, it is easier to reason about failure cases in Ybixo.
 
 Ruby optimizes its syntax for calling functions at the expense of referencing functions.
 This allows functions to be called without parentheses, but makes it more awkward to assign functions to variables that can be passed as function arguments.
-Oxiby requires parentheses for calling functions, so a function can be easily treated as a first-class value by omitting the parentheses.
+Ybixo requires parentheses for calling functions, so a function can be easily treated as a first-class value by omitting the parentheses.
 
-Although Oxiby produces Ruby source code, many of the features of Ruby are not exposed by Oxiby, such as its multiple types of anonymous functions.
-If you want to write a program that interfaces with existing Ruby libraries, it will not be possible in Oxiby.
+Although Ybixo produces Ruby source code, many of the features of Ruby are not exposed by Ybixo, such as its multiple types of anonymous functions.
+If you want to write a program that interfaces with existing Ruby libraries, it will not be possible in Ybixo.
 
-Oxiby is a good fit if you're writing a program with no Ruby dependencies and you want more protection from runtime errors than Ruby offers.
+Ybixo is a good fit if you're writing a program with no Ruby dependencies and you want more protection from runtime errors than Ruby offers.
 
 Specific examples of some of the differences between the two languages follow.
 
@@ -152,7 +152,7 @@ string = 3.14159
 string.upcase
 ```
 
-The equivalent Oxiby program would fail to compile due to the type mismatch in second line.
+The equivalent Ybixo program would fail to compile due to the type mismatch in second line.
 
 ### Metaprogramming
 
@@ -170,10 +170,10 @@ puts bananas # Prints "I love to eat bananas!"
 puts carrots # Prints "I love to eat carrots!"
 ```
 
-Oxiby has no equivalent of this behavior.
-Instead, an Oxiby program would be less clever and simply define one function with a parameter for the fruit:
+Ybixo has no equivalent of this behavior.
+Instead, an Ybixo program would be less clever and simply define one function with a parameter for the fruit:
 
-```oxiby
+```ybixo
 fn lovely_fruit(fruit: String) -> String {
     "I love to eat #{fruit}!"
 }
@@ -186,7 +186,7 @@ fn main() {
 ```
 
 The difference might seem unimportant in this trivial example, but metaprogramming can be used to signficantly reduce the amount of source code required in a program.
-Oxiby is more straightforward at the expense of being more verbose.
+Ybixo is more straightforward at the expense of being more verbose.
 
 ### Modules
 
@@ -210,11 +210,11 @@ The lines below the `require` suggest that it defined a class called `Truck`, bu
 Furthermore, the "truck" file could have defined its own `Car` class which would overwrite the local one due to the `require` coming after the local definition.
 Because of this, it's not possible to know from looking at this source code what `Car.new.drive` will actually do at runtime.
 
-In Oxiby, the only side effect importing from a module has is that, if it has a `main` function, it will be run automatically, which is useful for initialization code.
+In Ybixo, the only side effect importing from a module has is that, if it has a `main` function, it will be run automatically, which is useful for initialization code.
 However, any impact on the local file's namespace is explicitly controlled with named imports.
-The equivalent Oxiby program would be:
+The equivalent Ybixo program would be:
 
-```oxiby
+```ybixo
 struct Car {
     fn drive(self) -> String {
         "Driving the car!"
@@ -257,9 +257,9 @@ end
 
 Because any function can raise an exception of any type, you cannot look at a function's signature to know all of the possible failure cases that should be handled.
 
-Oxiby requires that fallible functions indicate their fallibility as part of their signature, making it very clear to callers what the failure cases are and how to handle them:
+Ybixo requires that fallible functions indicate their fallibility as part of their signature, making it very clear to callers what the failure cases are and how to handle them:
 
-```oxiby
+```ybixo
 fn might_error() -> Result<(), String> {
     will_error()
 }
@@ -286,9 +286,9 @@ greet # Calls the greet method
 method(:greet) # Creates a first-class "method object" from greet
 ```
 
-The equivalent Oxiby is more succinct:
+The equivalent Ybixo is more succinct:
 
-```oxiby
+```ybixo
 greet() // Calls the greet function
 greet // References the greet function
 ```
@@ -363,10 +363,10 @@ In this example, the difference between a proc and a lambda has no impact on its
 The difference between the two is that the lambda has stricter behavior with regards to argument arity and control flow keywords.
 Using `return` from inside a lambda will return from the lambda, whereas using `return` from inside a proc will return from the function where the proc is called.
 
-In Oxiby, none of this complexity is present.
+In Ybixo, none of this complexity is present.
 There is only one form of anonymous function, the closure, and functions must be explicit that they accept them as parameters in their signatures:
 
-```oxiby
+```ybixo
 struct MyArray<t> {
     array: List<t>,
 
@@ -388,4 +388,4 @@ fn main() {
 }
 ```
 
-In Oxiby, closures behave exactly like functions with regard to control flow keywords, so they have no ability to return early from the function in which they are called.
+In Ybixo, closures behave exactly like functions with regard to control flow keywords, so they have no ability to return early from the function in which they are called.

@@ -4,11 +4,11 @@ Our program always says "hello" to the person we're greeting.
 What if we want to change our greeting depending on who is greeted?
 We can do that with conditional expressions, which are expressions that evaluate to boolean values, either `true` or `false`.
 
-```oxiby
+```ybixo
 // File: examples/chapter_03_conditions/hello_world.ob
 
 fn greet(name: String) -> String {
-    let salutation = if name == "Oxiby" {
+    let salutation = if name == "Ybixo" {
         "Greetings"
     } else {
         "Hello"
@@ -18,39 +18,39 @@ fn greet(name: String) -> String {
 }
 
 fn main() {
-    let greeting = greet("Oxiby")
+    let greeting = greet("Ybixo")
 
     print_line(greeting)
 }
 ```
 
 
-Use the Oxiby compiler to run the program and see its ouput:
+Use the Ybixo compiler to run the program and see its ouput:
 
 ```
 $ obc run hello_world.ob
-Greetings, Oxiby!
+Greetings, Ybixo!
 ```
 
-This update to our program introduces two important tools for programming in Oxiby.
+This update to our program introduces two important tools for programming in Ybixo.
 
 ## Operations
 
-```oxiby
-name == "Oxiby"
+```ybixo
+name == "Ybixo"
 ```
 
 Operations are expressions for common mathematical operations like addition, subtraction, and equality.
-In our program we're using the equality comparison to check if the string bound to the variable `name` is `"Oxiby"`.
+In our program we're using the equality comparison to check if the string bound to the variable `name` is `"Ybixo"`.
 
 Operations are similar to function calls, but use **infix**, **prefix**, or **postfix** notation.
 
 Equality uses the `==` operator with infix notation, where the two operands appear on either side of the operator.
 Conceptually, we can think of these two forms as equivalent:
 
-```oxiby
-name == "Oxiby"
-equal(name, "Oxiby")
+```ybixo
+name == "Ybixo"
+equal(name, "Ybixo")
 ```
 
 Comparison operations like equality evaluate to boolean values, i.e. either `true` or `false`.
@@ -58,7 +58,7 @@ Comparison operations like equality evaluate to boolean values, i.e. either `tru
 An example of prefix notation is the unary operator `!` which inverts a boolean value.
 The following two lines both evaluate to `true`:
 
-```oxiby
+```ybixo
 true
 !false
 ```
@@ -66,7 +66,7 @@ true
 An example of postfix notation is using square brackets to index a list.
 (Don't worry about what indexing a list means yet.)
 
-```oxiby
+```ybixo
 list[0]
 ```
 
@@ -74,22 +74,22 @@ list[0]
 
 Conditional expressions allow our logic to **branch** and do different things based on a boolean expression, such as a comparison.
 
-```oxiby
-if name == "Oxiby" {
+```ybixo
+if name == "Ybixo" {
     "Greetings"
 } else {
     "Hello"
 }
 ```
 
-This checks whether `"Oxiby"` is bound to the variable `name`.
+This checks whether `"Ybixo"` is bound to the variable `name`.
 If it is, the code inside the first set of curly braces is evaluated, producing `"Greetings"`.
 If it isn't, the code inside the second set of curly braces is evaluated, producing `"Hello"`.
 
 In our example program, we're assinging the conditional expression to a variable.
 
-```oxiby
-let salutation = if name == "Oxiby" {
+```ybixo
+let salutation = if name == "Ybixo" {
     "Greetings"
 } else {
     "Hello"
@@ -101,11 +101,11 @@ Assigning this value to a variable is not required.
 We'll often seen conditionals used for their side effects.
 For example, our entire program could be rewritten inside `main` like this:
 
-```oxiby
+```ybixo
 fn main() {
-    let name = "Oxiby"
+    let name = "Ybixo"
 
-    if name == "Oxiby" {
+    if name == "Ybixo" {
         print_line("Hello, me!")
     } else {
         print_line("Hello, #{name}!")
@@ -115,7 +115,7 @@ fn main() {
 
 Conditionals can also be chained as many times as needed if there are more than two logical branches:
 
-```oxiby
+```ybixo
 if country == "Norway" {
     "Greetings to the Norwegians!"
 } else if country == "Egypt" {
@@ -127,8 +127,8 @@ if country == "Norway" {
 
 Finally, the `else` branch can be omitted if there is nothing to do when the condition doesn't match:
 
-```oxiby
-if name == "Oxiby" {
+```ybixo
+if name == "Ybixo" {
     "It's me!"
 }
 ```

@@ -17,7 +17,7 @@ Emphasis is indicated by italics.
 
 Example:
 
-* Oxiby is a _lot_ of fun to use!
+* Ybixo is a _lot_ of fun to use!
 
 ## Source code
 
@@ -28,7 +28,7 @@ Examples:
 
 * Inline code appears with `"a monospace font"`.
 
-*   ```oxiby
+*   ```ybixo
     // Multi-line source code appears with
     fancy(syntax: "highlighting")
     ```
@@ -38,10 +38,10 @@ Hover over the block and click on the clipboard icon that appears in the upper r
 
 ## Example code
 
-All of the example programs in the book are available in the `examples` directory of the book's Git repository, which you can find at [https://github.com/oxiby/book](https://github.com/oxiby/book).
+All of the example programs in the book are available in the `examples` directory of the book's Git repository, which you can find at [https://github.com/ybixo/book](https://github.com/ybixo/book).
 Each multi-line code block corresponding to an example program will begin with a code comment showing the path to that file within the repository:
 
-```oxiby
+```ybixo
 // File: examples/chapter_01_first/hello_world.ob
 ```
 
@@ -56,6 +56,6 @@ Example:
 
 ```
 $ obc run hello_world.ob
-> Oxiby
-Hello, Oxiby!
+> Ybixo
+Hello, Ybixo!
 ```

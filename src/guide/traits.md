@@ -2,7 +2,7 @@
 
 In the last chapter, we tried to define a generic function that adds two values together:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/add.ob
 
 fn add(a: t, b: t) -> t {
@@ -25,7 +25,7 @@ It's a way to define common behavior across types.
 
 Here's an example of a trait from the standard library:
 
-```oxiby
+```ybixo
 trait ToString {
     fn to_string(self) -> String
 }
@@ -37,7 +37,7 @@ That's because it's up to the types that **implement** the trait to define how t
 
 Let's implement the `ToString` trait for the `Person` type we've used previously:
 
-```oxiby
+```ybixo
 // File: examples/chapter_14_traits/person_to_string.ob
 
 struct Person {
@@ -72,7 +72,7 @@ Why not?
 What was the point of implementing the trait if we don't use it?
 To understand that, we need to look at the signature of the `print_line` function:
 
-```oxiby
+```ybixo
 fn print_line(s: s) where s: ToString
 ```
 
@@ -102,7 +102,7 @@ In its implementation, it calls `to_string` on the given argument, and prints th
 
 Let's finally bring this back around to our `add` function:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/add.ob
 
 fn add(a: t, b: t) -> t {
@@ -112,10 +112,10 @@ fn add(a: t, b: t) -> t {
 
 We know now that we can't use methods unless we know that the types involved implement those methods.
 We can't add two `t`s together if we don't know that they support addition.
-In Oxiby, operators are implemented as traits.
+In Ybixo, operators are implemented as traits.
 If we specify that `t` must be `Add`, our function will work as we orignally expect:
 
-```oxiby
+```ybixo
 use std.ops Add
 
 fn add(a: t, b: t) -> t where t: Add {
@@ -124,14 +124,14 @@ fn add(a: t, b: t) -> t where t: Add {
 ```
 
 Now `add` will work with any type, as long as that type is `Add`.
-This is the basis for [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading) in Oxiby, a form of [ad-hoc polymorphism](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism) that allows us to use the built-in operators like `+` with our own types.
+This is the basis for [operator overloading](https://en.wikipedia.org/wiki/Operator_overloading) in Ybixo, a form of [ad-hoc polymorphism](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism) that allows us to use the built-in operators like `+` with our own types.
 
 ## Implementing traits
 
 Let's use this knowledge to implement `Add` for the `ShoppingList` type we made previously.
 To do that, we'll need to look at how `Add` is defined:
 
-```oxiby
+```ybixo
 pub trait Add<rhs> where rhs = Self {
     type Output
 
@@ -151,7 +151,7 @@ It's a generic type that the trait implementation must specify.
 We'll see how it's different from a regular generic type like `rhs` in a moment.
 For now, let's implement `Add` for `ShoppingList`, with a quick recap of how `ShoppingList` is defined:
 
-```oxiby
+```ybixo
 // File: examples/chapter_14_traits/shopping_list_add.ob
 
 use std.ops Add
@@ -222,7 +222,7 @@ Because `rhs` is a type parameter and we used the default type `Self` in our imp
 If we wanted to allow other types to be added to a `ShoppingList`, we'd need an additional implementation of the trait.
 Perhaps a useful one would be `(String, Integer)`, a tuple of two values that match the key/value relationship inside `ShoppingList`.
 
-```oxiby
+```ybixo
 // File: examples/chapter_14_traits/shopping_list_add_tuple.ob
 
 use std.ops Add

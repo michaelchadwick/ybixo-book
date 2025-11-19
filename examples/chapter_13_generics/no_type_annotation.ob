@@ -1,12 +1,12 @@
 fn main() {
     let ok_integer = Ok(1)
-    let ok_string = Ok("Oxiby")
+    let ok_string = Ok("Ybixo")
 
     let err_integer = Err(-1)
     let err_string = Err("Uh oh!")
 
     let some_integer = Some(1)
-    let some_string = Some("Oxiby")
+    let some_string = Some("Ybixo")
 
     let none_integer = None
     let none_string = None

@@ -3,7 +3,7 @@ use std.io read_line
 fn greet() -> String {
     print("> ")
 
-    let name = read_line().unwrap_or("Oxiby").trim_end()
+    let name = read_line().unwrap_or("Ybixo").trim_end()
 
     "Hello, #{name}!"
 }

@@ -1,5 +1,5 @@
 fn greet(name: String) -> String {
-    let salutation = if name == "Oxiby" {
+    let salutation = if name == "Ybixo" {
         "Greetings"
     } else {
         "Hello"
@@ -9,7 +9,7 @@ fn greet(name: String) -> String {
 }
 
 fn main() {
-    let greeting = greet("Oxiby")
+    let greeting = greet("Ybixo")
 
     print_line(greeting)
 }

@@ -2,7 +2,7 @@ struct Container<t>(t)
 
 fn main() {
     let contained_integer = Container(1)
-    let contained_string = Container("Oxiby")
+    let contained_string = Container("Ybixo")
 
     print_line(contained_integer)
     print_line(contained_string)

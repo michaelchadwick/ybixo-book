@@ -1,4 +1,4 @@
-// Welcome to Oxiby!
+// Welcome to Ybixo!
 fn main() {
     print_line("Hello, World!")
 }

@@ -1,21 +1,21 @@
-# Writing your first Oxiby program
+# Writing your first Ybixo program
 
-As is tradition, we'll begin learning Oxiby with the ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program.
+As is tradition, we'll begin learning Ybixo with the ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program.
 
 Create an empty directory to work on the programs in this book.
 Inside this new directory, create a new file called `hello_world.ob`.
 Enter the following text into the file:
 
-```oxiby
+```ybixo
 // File: examples/chapter_01_first/hello_world.ob
 
-// Welcome to Oxiby!
+// Welcome to Ybixo!
 fn main() {
     print_line("Hello, World!")
 }
 ```
 
-Use the Oxiby compiler to run the program and see its output:
+Use the Ybixo compiler to run the program and see its output:
 
 ```
 $ obc run hello_world.ob
@@ -24,7 +24,7 @@ Hello, World!
 
 Remember this command because we'll use it a lot.
 
-This simple program teaches us a few things about Oxiby.
+This simple program teaches us a few things about Ybixo.
 
 ## Comments
 
@@ -32,7 +32,7 @@ Two slashes (`//`) begin a comment. Any text afterwards on the same line will be
 
 ## String literals
 
-```oxiby
+```ybixo
 "Hello, World!"
 ```
 
@@ -43,7 +43,7 @@ There are other kinds of literals for different types in the language, such as i
 
 ## Functions
 
-```oxiby
+```ybixo
 fn example() {
     expression
 }
@@ -57,7 +57,7 @@ In our program, `main` has a body consisting of one expression.
 
 ## Calling functions
 
-```oxiby
+```ybixo
 print_line("Hello, World!")
 ```
 

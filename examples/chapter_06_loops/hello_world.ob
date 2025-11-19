@@ -3,7 +3,7 @@ use std.io read_line
 fn greet() -> List<String> {
     print("> ")
 
-    let names = read_line().unwrap_or("Oxiby").trim_end().split(" ")
+    let names = read_line().unwrap_or("Ybixo").trim_end().split(" ")
     let greetings = []
 
     for name in names {

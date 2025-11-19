@@ -4,7 +4,7 @@ Our program currently greets whomever we specify on the command line.
 What if we want to be able to greet multiple people at once?
 We can achieve that with lists and loops.
 
-```oxiby
+```ybixo
 // File: examples/chapter_06_loops/hello_world.ob
 
 use std.io read_line
@@ -12,7 +12,7 @@ use std.io read_line
 fn greet() -> List<String> {
     print("> ")
 
-    let names = read_line().unwrap_or("Oxiby").trim_end().split(" ")
+    let names = read_line().unwrap_or("Ybixo").trim_end().split(" ")
     let greetings = []
 
     for name in names {
@@ -35,8 +35,8 @@ Run the program and enter multiple names separated by spaces when the program pa
 
 ```
 $ obc run hello_world.ob
-> Oxiby Rust Ruby
-Hello, Oxiby!
+> Ybixo Rust Ruby
+Hello, Ybixo!
 Hello, Rust!
 Hello, Ruby!
 ```
@@ -50,26 +50,26 @@ Every element in a list must be the same type, so we can't have a list containin
 A list type is written with the word `List` followed by the type of the element in the list in angle brackets.
 Previously, our `greet` function returned a string, but now it returns a list of strings:
 
-```oxiby
+```ybixo
 fn greet() -> List<String>
 ```
 
 A list is created with a pair of square brackets.
 In our program, we initialize the variable `greetings` as an empty list, which we will populate with elements later:
 
-```oxiby
+```ybixo
 let greetings = []
 ```
 
 Here's an example of creating a list with some initial elements:
 
-```oxiby
+```ybixo
 let fruits = ["apple", "banana", "carrot"]
 ```
 
 To access a specific item in a list, we use square brackets to perform an **indexing** operation:
 
-```oxiby
+```ybixo
 fruits[0]
 ```
 
@@ -77,18 +77,18 @@ The number in the square brackets is a numeric offset from the beginning of the 
 
 In our program, we're creating the list of names to iterate over using the `split` method on the `String` type:
 
-```oxiby
-read_line().unwrap_or("Oxiby").trim_end().split(" ")
+```ybixo
+read_line().unwrap_or("Ybixo").trim_end().split(" ")
 ```
 
-Remember that `read_line().unwrap_or("Oxiby").trim_end()` returns a string.
-If the string the user provided contains multiple words separated by some delimiter, like `"Rust Ruby Oxiby"`, `split` will break these words apart into a list of multiple strings.
+Remember that `read_line().unwrap_or("Ybixo").trim_end()` returns a string.
+If the string the user provided contains multiple words separated by some delimiter, like `"Rust Ruby Ybixo"`, `split` will break these words apart into a list of multiple strings.
 We pass `" "` to `split` to specify a single empty space as the delimiter between words.
 If there are no spaces in the input, `split` will return a list containing only one element, the original string.
 
 ## `for` loops
 
-```oxiby
+```ybixo
 for name in names {
     greetings.push("Hello, #{name}!")
 }
@@ -105,7 +105,7 @@ In our program, we iterate through all the names the user provided to us on the 
 
 Back in our `main` function, we take the list of strings returned by our `greet` function and use another `for` loop to print each one back to the user:
 
-```oxiby
+```ybixo
 for greeting in greetings {
     print_line(greeting)
 }
@@ -113,7 +113,7 @@ for greeting in greetings {
 What if we want to skip elements in a list or stop iterating a list before we reach the end?
 That can be achieved with the `continue` and `break` keywords, respectively:
 
-```oxiby
+```ybixo
 // File: examples/chapter_06_loops/continue_break.ob
 
 fn main() {
@@ -144,7 +144,7 @@ As a result, "banana" is the only one of the three fruits that is printed.
 `for` loops are the right choice when we need to iterate through a list, but there are times when we might want to execute a block of code multiple times without a list.
 There's a more general kind of loop called a `while` loop that we would use in this case.
 
-```oxiby
+```ybixo
 // File: examples/chapter_06_loops/while_loop.ob
 
 fn main() {
@@ -175,7 +175,7 @@ Notice that the `while` loop always evaluates the condition before the block exe
 If we want to always execute the code in the block at least once without checking a condition, we can use `loop` and break out of it explicitly.
 The same logic as our `while` loop example can be expressed this way:
 
-```oxiby
+```ybixo
 // File: examples/chapter_06_loops/indefinite_loop.ob
 
 fn main() {

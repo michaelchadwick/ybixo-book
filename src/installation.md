@@ -5,10 +5,10 @@ This process has not been tested on Windows, but will likely work the same way, 
 
 ## Prerequisites
 
-Oxiby requires:
+Ybixo requires:
 
 * Git to clone the compiler's source code
-* Ruby (version 3.4 or later) to run the programs produced by the Oxiby compiler
+* Ruby (version 3.4 or later) to run the programs produced by the Ybixo compiler
 * Rust (version 1.65 or later) to build the compiler itself
   * Cargo, the build tool for Rust, which will be installed alongside Rust
 
@@ -16,10 +16,10 @@ Oxiby requires:
 
 1.  Install Ruby: [https://www.ruby-lang.org/en/downloads/](https://www.ruby-lang.org/en/downloads/)
 1.  Install Rust: [https://rust-lang.org/tools/install/](https://rust-lang.org/tools/install/)
-1.  Clone the Oxiby Git repository:
+1.  Clone the Ybixo Git repository:
 
     ```
-    $ git clone https://github.com/oxiby/oxiby.git
+    $ git clone https://github.com/ybixo/ybixo.git
     ```
 
 1.  From inside the newly cloned repository, execute:
@@ -31,7 +31,7 @@ Oxiby requires:
     Note the trailing `.` at the end of that command.
 
     This will build the compiler and place it in Cargo's `bin` directory, which you should add to your `PATH` environment variable as described in the installation instructions for Rust.
-1.  The Oxiby compiler is now available. Try executing:
+1.  The Ybixo compiler is now available. Try executing:
 
     ```
     $ obc --help

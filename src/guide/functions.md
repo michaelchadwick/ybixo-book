@@ -2,7 +2,7 @@
 
 Let's expand our simple program a bit by using a function to determine who is greeted.
 
-```oxiby
+```ybixo
 // File: examples/chapter_02_functions/hello_world.ob
 
 fn greet(name: String) -> String {
@@ -10,24 +10,24 @@ fn greet(name: String) -> String {
 }
 
 fn main() {
-    let greeting = greet("Oxiby")
+    let greeting = greet("Ybixo")
 
     print_line(greeting)
 }
 ```
 
-Again, use the Oxiby compiler to run the program and see its ouput:
+Again, use the Ybixo compiler to run the program and see its ouput:
 
 ```
 $ obc run hello_world.ob
-Hello, Oxiby!
+Hello, Ybixo!
 ```
 
-This version of the program teaches us a few more things about Oxiby.
+This version of the program teaches us a few more things about Ybixo.
 
 ## Function parameters
 
-```oxiby
+```ybixo
 fn greet(name: String)
 ```
 
@@ -36,7 +36,7 @@ In this case, our function `greet` has a single parameter called `name` which mu
 
 ## Function return values
 
-```oxiby
+```ybixo
 fn greet(name: String) -> String
 ```
 
@@ -49,7 +49,7 @@ If we want, we can also use the `return` keyword to specify the returned value e
 This form can be used to "return early" from a function, even if it's not the last line of the function.
 We'll learn in a future chapter why we might want to do so.
 
-```oxiby
+```ybixo
 return "Hello, #{name}!"
 ```
 
@@ -57,8 +57,8 @@ The combination of a function's name, parameters, and return type is called its 
 
 ## Variables
 
-```oxiby
-let name = "Oxiby"
+```ybixo
+let name = "Ybixo"
 ```
 
 A variable is created by binding a value to an identifier using `let`.
@@ -69,7 +69,7 @@ A variable name must start with a lowercase letter and should be written in [sna
 
 ## String interpolation
 
-```oxiby
+```ybixo
 "Hello, #{name}!"
 ```
 

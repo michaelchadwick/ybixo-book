@@ -3,7 +3,7 @@ fn greet(name: String) -> String {
 }
 
 fn main() {
-    let greeting = greet("Oxiby")
+    let greeting = greet("Ybixo")
 
     print_line(greeting)
 }

@@ -4,7 +4,7 @@
 
 ---
 
-- [Writing your first Oxiby program](guide/first.md)
+- [Writing your first Ybixo program](guide/first.md)
 - [Using functions and variables](guide/functions.md)
 - [Controlling flow with conditions](guide/conditions.md)
 - [Reading from standard input](guide/stdin.md)
@@ -18,9 +18,9 @@
 - [Organizing code with modules](guide/modules.md)
 - [Reusing code with generics](guide/generics.md)
 - [Defining common behavior with traits](guide/traits.md)
-- [Writing tic-tac-toe in Oxiby](guide/game.md)
-- [Exploring Oxiby further](guide/conclusion.md)
+- [Writing tic-tac-toe in Ybixo](guide/game.md)
+- [Exploring Ybixo further](guide/conclusion.md)
 
 ---
 
-[Oxiby compared to Rust and Ruby](comparison.md)
+[Ybixo compared to Rust and Ruby](comparison.md)

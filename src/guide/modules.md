@@ -2,7 +2,7 @@
 
 For simple programs like the ones we've written so far, there's no trouble fitting everything in one file, but for larger programs, it's useful to split code up across multiple files to help with readability and organization.
 
-In Oxiby, a module is a single file containing Oxiby source code.
+In Ybixo, a module is a single file containing Ybixo source code.
 Modules define types, functions, and a few more things we haven't learned about yet.
 Each of these things is called an **item**.
 An item can be imported from one module into another with the `use` keyword.
@@ -10,7 +10,7 @@ This is how modules share code with each other.
 
 Importing items from another module looks like this:
 
-```oxiby
+```ybixo
 use database.tables Person, load_people_from_json
 ```
 
@@ -18,11 +18,11 @@ The syntax is the keyword `use`, followed by the path to the module (as you woul
 You can have as many imports in a module as you need.
 
 The path of a module is written relative to the main module of the program (the one you provide to the `obc build` command as the `INPUT` argument).
-Modules beginning with the path `std` are reserved for Oxiby's standard library.
+Modules beginning with the path `std` are reserved for Ybixo's standard library.
 
 There can't be two items in a module with the same name, so if there's a name conflict, imports must be renamed with the `->` operator:
 
-```oxiby
+```ybixo
 use library_a Name -> AName
 use library_b Name -> BName
 ```
@@ -30,7 +30,7 @@ use library_b Name -> BName
 There's a special "module" called `self` that allows us to create aliases to items defined in the current module.
 This is handy for using enum variants without naming the enum:
 
-```oxiby
+```ybixo
 use self Vehicle.Car
 
 enum Vehicle {
@@ -59,7 +59,7 @@ This idea is called **encapsulation** and is a commonly used technique across ma
 Let's look at an example of how this can be useful to protect the data in our programs.
 Back in the chapter on structs, we had a program that looked like this:
 
-```oxiby
+```ybixo
 struct Person {
     name: String,
     age: Integer,
@@ -87,7 +87,7 @@ When our data is very simple this might not be a problem and might be the most c
 But if we want to maintain the integrity of the data in the struct, we might want to protect it.
 Consider the following example:
 
-```oxiby
+```ybixo
 // File: examples/chapter_12_modules/exposed_shopping_list.ob
 
 struct ShoppingList {
@@ -115,7 +115,7 @@ Our struct should protect access to its internal data to make sure the user does
 
 If we define the struct in its own module, we can use encapsulation to prevent this problem:
 
-```oxiby
+```ybixo
 // File: examples/chapter_12_modules/shopping_list.ob
 
 pub struct ShoppingList {
@@ -139,7 +139,7 @@ pub struct ShoppingList {
 }
 ```
 
-```oxiby
+```ybixo
 // File: examples/chapter_12_modules/main.ob
 
 use shopping_list ShoppingList
@@ -172,7 +172,7 @@ In order to read or write data from the struct, we need to use its public method
 
 Because we can no longer access `map` directly from outside the struct, you'll notice that the syntax for creating the shopping list at the beginning of the `main` function has changed:
 
-```oxiby
+```ybixo
 let shopping_list = ShoppingList.new()
 ```
 
@@ -182,7 +182,7 @@ Since `ShoppingList` can access its own fields inside its own functions, we're a
 
 ### The `add_food` method
 
-```oxiby
+```ybixo
 pub fn add_food(self, food: String, quantity: Integer) -> Result<(), String> {
     if quantity < 1 {
         return Err("Quantity must be at least 1.")
@@ -202,7 +202,7 @@ There's no meaningful value to return for the success case, but we have to retur
 
 This means that back in `main`, we must check to see whether or not our addition succeeded:
 
-```oxiby
+```ybixo
 match shopping_list.add_food("apple", -1) {
     Ok(_) -> print_line("Added apples to our shopping list."),
     Err(error) -> print_line("Couldn't add apples to our shopping list: #{error}"),

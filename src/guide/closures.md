@@ -1,6 +1,6 @@
 # Sharing behavior with closures
 
-Program logic in Oxiby lives in functions, but there's another kind of function we haven't seen yet.
+Program logic in Ybixo lives in functions, but there's another kind of function we haven't seen yet.
 It's called a **closure**, or alternatively an **anonymous function**.
 These functions are anonymous, because unlike the ones we've seen so far, they don't have names.
 They're called closures because they "close over" their environment, which we'll see in a moment.
@@ -9,7 +9,7 @@ Closures are values, just like string, integers, booleans, etc.
 They can be assigned to variables or passed as arguments to other functions.
 Closures are written and used like this:
 
-```oxiby
+```ybixo
 // File: examples/chapter_09_closures/closure.ob
 
 fn main() {
@@ -39,7 +39,7 @@ Since closures are values, they can be passed as arguments to functions.
 A great example is the `map` method on the `Result` type.
 Let's say we want to read in a line of text from the standard input and transform the string created into the number of characters that were in the string.
 
-```oxiby
+```ybixo
 // File: examples/chapter_09_closures/map.ob
 
 use std.io read_line
@@ -78,11 +78,11 @@ The other reason closures are useful is that they **capture their environment**.
 What this means is that they "remember" local variables that were in scope at the location they were defined, even if they are called in a different location.
 To demonstrate:
 
-```oxiby
+```ybixo
 // File: examples/chapter_09_closures/capture.ob
 
 fn make_greeting() -> Fn() -> String {
-    let name = "Oxiby"
+    let name = "Ybixo"
 
     fn () -> String {
         "Hello, #{name}!"
@@ -92,7 +92,7 @@ fn make_greeting() -> Fn() -> String {
 fn main() {
     let greeting = make_greeting()
 
-    // Prints "Hello, Oxiby!"
+    // Prints "Hello, Ybixo!"
     print_line(greeting())
 }
 ```

@@ -1,13 +1,13 @@
 [book]
-authors = ["Jimmy Cuadra"]
-description = "Guide for the Oxiby programming language."
+authors = ["Michael Chadwick"]
+description = "Guide for the Ybixo programming language."
 language = "en"
 src = "src"
-title = "The Oxiby Programming Language"
+title = "The Ybixo Programming Language"
 
 [output.html]
-additional-js = ["js/highlight.min.js", "js/oxiby.min.js"]
-cname = "www.oxiby.com"
-edit-url-template = "https://github.com/oxiby/book/edit/main/{path}"
-git-repository-url = "https://github.com/oxiby/book"
+additional-js = ["js/highlight.min.js", "js/ybixo.min.js"]
+cname = "www.ybixo.com"
+edit-url-template = "https://github.com/michaelchadwick/ybixo-book/edit/main/{path}"
+git-repository-url = "https://github.com/michaelchadwick/ybixo-book"
 hash-files = true

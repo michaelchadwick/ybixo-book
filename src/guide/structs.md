@@ -1,6 +1,6 @@
 # Modeling data with structs
 
-Our programs so far have dealt entirely with types native to Oxiby.
+Our programs so far have dealt entirely with types native to Ybixo.
 These have mostly been scalar types like `String` and `Boolean`, but we've also seen compound types like `List` and `HashMap`.
 If we want to create our own types to model data in our programs, there are two options available.
 The first are **structs**, which is short for **structures**.
@@ -8,7 +8,7 @@ We might also hear the same concept described as **records**, **objects**, or **
 A struct is a single type that is made up of multiple pieces of data.
 Each of these constituent pieces has a name associated with it. Here's an example:
 
-```oxiby
+```ybixo
 struct Person {
     name: String,
     age: Integer,
@@ -20,7 +20,7 @@ A field is a name beginning with a lower case letter, a colon, and the type of t
 
 Constructing a struct inside a function uses very similar syntax, but specifies the values instead of the types:
 
-```oxiby
+```ybixo
 fn alice() -> Person {
     Person {
         name: "Alice",
@@ -31,7 +31,7 @@ fn alice() -> Person {
 
 Fields can be accessed with the `.` operator for reading and writing:
 
-```oxiby
+```ybixo
 let person = Person {
     name: "Alice",
     age: 42,
@@ -53,7 +53,7 @@ The first is that it's easier to think about larger concepts like `Person` if al
 The second is that it allows us to attach behavior to the data in the form of methods.
 Let's write some code similar to the previous example, but with a `Person` knowing how to print a sentence with its own name.
 
-```oxiby
+```ybixo
 // File: examples/chapter_10_structs/instance_methods.ob
 
 struct Person {
@@ -85,7 +85,7 @@ The `self` parameter always comes first in the parameter list.
 
 Recall that when we first learned about methods, we learned that the following two forms are equivalent:
 
-```oxiby
+```ybixo
 function(value)
 value.function()
 ```
@@ -106,7 +106,7 @@ The reason to use a static method rather than a free function (one not associate
 We'll commonly see static functions used for **constructors**.
 These are functions that initialize a new value of the type:
 
-```oxiby
+```ybixo
 // File: examples/chapter_10_structs/static_methods.ob
 
 struct ShoppingList {
@@ -142,7 +142,7 @@ In this case, writing `Self` is the same as writing `ShoppingList`.
 It's a nice shortcut that we can use to avoid writing the full name of the type over and over.
 It also means that if we decide to rename the type, we only have to change its name in one place within its definition.
 
-In Oxiby, static function names don't have any special meaning, so we don't have to name constructors anything specific like `new`, as we do in other programming languages.
+In Ybixo, static function names don't have any special meaning, so we don't have to name constructors anything specific like `new`, as we do in other programming languages.
 However, `new` is a coventional name that most programmers will find unsurprising, so it's a good idea to use for a type's main constructor.
 
 > **Warning: The `Self` type alias is not yet available.
@@ -156,13 +156,13 @@ The first is called a **tuple struct**.
 The difference from the main form of struct is that the fields are not named.
 They are defined like this:
 
-```oxiby
+```ybixo
 struct Name(String, String)
 ```
 
 And constructed like this:
 
-```oxiby
+```ybixo
 let name = Name("Alice", "Henderson")
 ```
 
@@ -170,7 +170,7 @@ Tuples are a core data type we haven't talked about yet.
 They are like lists, in that they are a sequence of ordered values, but they have a fixed length (whereas lists can change size) and they need not all be the same type.
 The following are all examples of tuples:
 
-```oxiby
+```ybixo
 // Type: (String, String)
 ("Alice", "Henderson")
 
@@ -182,7 +182,7 @@ The following are all examples of tuples:
 
 // Type: (String)
 // The comma is needed to distinguish from a parenthesized expression
-("Oxiby",)
+("Ybixo",)
 ```
 
 These "raw" tuple types do not have names.
@@ -190,7 +190,7 @@ A tuple struct is simply a way to represent such a type with a specific name, an
 
 Just like structs with named fields, tuple structs can have both instance methods and static methods:
 
-```oxiby
+```ybixo
 struct Name(String, String) {
     fn new(first_name: String, last_name: String) -> Self {
         Self(first_name, last_name)
@@ -208,7 +208,7 @@ The same syntax is used for regular tuples.
 
 Tuple structs can be useful to "wrap" another type and give it new functionality, a technique called a **newtype**:
 
-```oxiby
+```ybixo
 struct ExclamationString(String) {
     fn exclaim(self) -> String {
         "#{self.0}!"
@@ -224,20 +224,20 @@ They're also convenient when the meaning of the fields are obvious and writing o
 The other kind of struct is the unit struct, which holds no data at all.
 They are defined like this:
 
-```oxiby
+```ybixo
 struct Empty
 ```
 
 They are constructed simply using the the type name:
 
-```oxiby
+```ybixo
 let empty = Empty
 ```
 
 Like the other kinds of structs, we can define methods on unit structs.
 Since they have no data to work with, the benefit of doing this is mostly for organizing functions that relate to the same concept:
 
-```oxiby
+```ybixo
 struct First {
     fn first_letter() -> String {
         "a"

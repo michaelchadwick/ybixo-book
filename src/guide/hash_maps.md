@@ -4,7 +4,7 @@ Lists are useful for representing ordered collections of values, but aren't the 
 For example, if we had a shopping list, where each type of food was associated with the quantity of that food to buy, it would be awkward to represent as a list.
 The right tool is a hash map.
 
-```oxiby
+```ybixo
 let shopping_list = ["apple": 3, "banana": 1, "carrot": 2]
 ```
 
@@ -20,7 +20,7 @@ We'll learn how to make our own types hashable in a future chapter.
 
 ## Iterating through key-value pairs
 
-```oxiby
+```ybixo
 for (food, quantity) in shopping_list {
     print_line("Number of #{food} to buy: #{quantity}")
 }
@@ -40,7 +40,7 @@ For now, just remember that when using a `for` loop with a hash map, we must bin
 
 To insert a new value into a hash map, use the indexing operator plus an assignment:
 
-```oxiby
+```ybixo
 shopping_list["dragonfruit"] = 1
 ```
 
@@ -50,7 +50,7 @@ If there was already a value associated with the key, it will be replaced with t
 
 To access a specific value in a hash map, use the indexing operator, just as with lists, but with a key instead of an integer offset:
 
-```oxiby
+```ybixo
 shopping_list["carrot"]
 ```
 

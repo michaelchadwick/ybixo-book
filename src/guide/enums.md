@@ -1,12 +1,12 @@
 # Modeling data with enums
 
-Enums (enumerations) are the second option for creating our own types in Oxiby.
+Enums (enumerations) are the second option for creating our own types in Ybixo.
 We've already had some experience with enums with the `Result` and `Option` types.
 An enum is a single type that can have multiple variants.
 Each variant can contain different data, but each variant is considered the same type.
 We might also hear the same concept described as a **sum type** in other languages.
 
-```oxiby
+```ybixo
 enum TrafficLight {
     Red,
     Yellow,
@@ -18,7 +18,7 @@ An enum is defined with the `enum` keyword, followed by a type name beginning wi
 
 Constructing an enum inside a function looks like accessing a field on a struct:
 
-```oxiby
+```ybixo
 fn main() {
     let red = TrafficLight.Red
 }
@@ -30,7 +30,7 @@ Types that hold no data but can have methods.
 
 Like structs, enum variants can also have named fields:
 
-```oxiby
+```ybixo
 enum Book {
     Unread,
     LeftOff {
@@ -45,7 +45,7 @@ Since structs are usually used in the form with named fields, an enum variant wi
 
 For cases with data but where named fields aren't desired, we can also create **tuple variants**, just like tuple structs:
 
-```oxiby
+```ybixo
 enum Quadrilateral {
     Rectangle(Integer, Integer),
     Square(Integer),
@@ -60,7 +60,7 @@ That's only needed when creating a tuple value.
 
 Like structs, enums can have instance methods and static methods:
 
-```oxiby
+```ybixo
 // File: examples/chapter_11_enums/vehicle.ob
 
 enum Vehicle {
@@ -103,7 +103,7 @@ When we have an enum value, we use `match` to determine which variant it is, as 
 If a variant contains data, `match` is also used to extract that data into local variables.
 This works for both forms of variants that hold data:
 
-```oxiby
+```ybixo
 // File: examples/chapter_11_enums/pattern_matching.ob
 
 enum E {

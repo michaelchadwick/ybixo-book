@@ -7,7 +7,7 @@ Now it's time to explore this feature in depth!
 
 We know that functions can have parameters—values they take as input that determine what they ultimately return.
 
-```oxiby
+```ybixo
 fn identity(value: Integer) -> Integer {
     value
 }
@@ -16,7 +16,7 @@ fn identity(value: Integer) -> Integer {
 This simple `identity` function has a parameter for an integer, which it then returns right back to the caller.
 If we wanted to use strings, we'd have to write a new function with the types changed:
 
-```oxiby
+```ybixo
 fn string_identity(value: String) -> String {
     value
 }
@@ -27,7 +27,7 @@ No matter what the parameter is, the functions simply return it.
 
 By making this function generic, we'll have a single function definition that works for _any_ type:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/identity.ob
 
 fn identity(value: t) -> t {
@@ -36,10 +36,10 @@ fn identity(value: t) -> t {
 
 fn main() {
     let one = identity(1)
-    let oxiby = identity("Oxiby")
+    let ybixo = identity("Ybixo")
 
     print_line(one)
-    print_line(oxiby)
+    print_line(ybixo)
 }
 ```
 
@@ -47,14 +47,14 @@ The function signature looks almost the same as before, but we're now saying tha
 But `t` is not a **concrete type** like `Integer` or `String`.
 It's a **type parameter**, in the same way that `value` is a **value parameter**.
 
-Type names in Oxiby must start with a capital letter.
+Type names in Ybixo must start with a capital letter.
 A name starting with a lowercase letter in a context where a type is expected indicates that the name refers to a type parameter rather than a concrete type.
 Other than the requirement that it start with a lowercase letter, we can name a type parameter anything we want.
 `t` (standing for "type") is a common type parameter name for situations where we know nothing at all about what the concrete type might be, but longer, more descriptive type parameter names are often easier to read and understand.
 
 In our `main` function, we call `identity` twice, first with an integer, and second with a string.
 We don't declare explicitly what concrete type we want to use when calling `identity`.
-The Oxiby compiler uses a technique called **type inference** to figure it out based on the types of the arguments.
+The Ybixo compiler uses a technique called **type inference** to figure it out based on the types of the arguments.
 Sometimes there is not enough information for the compiler to figure out the concrete type.
 We'll see an example of that in a moment.
 
@@ -63,14 +63,14 @@ We'll see an example of that in a moment.
 Types we define can also be generic.
 Here's a tuple struct that can hold any type inside it:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/container.ob
 
 struct Container<t>(t)
 
 fn main() {
     let contained_integer = Container(1)
-    let contained_string = Container("Oxiby")
+    let contained_string = Container("Ybixo")
 
     print_line(contained_integer)
     print_line(contained_string)
@@ -83,7 +83,7 @@ The second one is the normal tuple struct syntax we've seen before, declaring `t
 
 We've already seen examples of enums that can hold any type with `Result` and `Option`:
 
-```oxiby
+```ybixo
 enum Result<t, e> {
     Ok(t),
     Err(e),
@@ -97,18 +97,18 @@ enum Option<t> {
 
 Here's an example that shows they are generic over the type they contain:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/no_type_annotation.ob
 
 fn main() {
     let ok_integer = Ok(1)
-    let ok_string = Ok("Oxiby")
+    let ok_string = Ok("Ybixo")
 
     let err_integer = Err(-1)
     let err_string = Err("Uh oh!")
 
     let some_integer = Some(1)
-    let some_string = Some("Oxiby")
+    let some_string = Some("Ybixo")
 
     let none_integer = None
     let none_string = None
@@ -119,7 +119,7 @@ If we try to compile the above program, we'll get errors saying that the types o
 `None` is the variant of `Option` where data is absent, but without context, it doesn't tell us what kind of data is absent.
 In cases like this, we need to give the compiler a hint by adding type annotations to our variables:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/type_annotation.ob
 
 fn main() {
@@ -140,13 +140,13 @@ With a single type parameter, we can do a lot.
 A great example is the `unwrap_or` method on `Result` that we looked at way back in the chapter on reading from standard input.
 Remember this?
 
-```oxiby
-let name = read_line().unwrap_or("Oxiby")
+```ybixo
+let name = read_line().unwrap_or("Ybixo")
 ```
 
 Now that we understand generics, let's see how `unwrap_or` is defined:
 
-```oxiby
+```ybixo
 pub enum Result<t, e> {
     Ok(t),
     Err(e),
@@ -170,7 +170,7 @@ The `_` in the `Err` match arm is a wildcard indicating that we don't care what 
 There are limits to what we can do with a completely unknown `t`, however.
 Try compiling this example:
 
-```oxiby
+```ybixo
 // File: examples/chapter_13_generics/add.ob
 
 fn add(a: t, b: t) -> t {

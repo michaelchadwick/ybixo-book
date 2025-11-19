@@ -1,4 +1,4 @@
-# Writing tic-tac-toe in Oxiby
+# Writing tic-tac-toe in Ybixo
 
 We've learned enough now that we can write some actually useful programs.
 We're going to write a version of the game tic-tac-toe that you can play with a friend in your terminal.
@@ -6,9 +6,9 @@ We're going to write a version of the game tic-tac-toe that you can play with a 
 We'll start by looking at the complete program.
 Then we'll break it down bit by bit to understand how it works and how it uses all the things we've learned in this book (as well as a few new things).
 
-Paste the code below into an Oxiby file and run it with `obc run` to try the game.
+Paste the code below into an Ybixo file and run it with `obc run` to try the game.
 
-```oxiby
+```ybixo
 // File: examples/chapter_15_game/tic_tac_toe.ob
 
 use std.io read_line
@@ -188,7 +188,7 @@ Try to find ways to break the game: entering input outside the 1 to 9 range, ent
 
 ### Imports
 
-```oxiby
+```ybixo
 use std.io read_line
 ```
 
@@ -198,7 +198,7 @@ It's what we use to read text the user enters on the command line into our progr
 
 ### Data types
 
-```oxiby
+```ybixo
 enum Player {
     X,
     O,
@@ -248,7 +248,7 @@ This represents the columns in a row and whether or not a player has left a mark
 The `Game` type has two methods, but let's ignore them for now and take a look at the main loop that runs the game.
 The `main` function begins by initializing the state for a new game:
 
-```oxiby
+```ybixo
 let game = Game {
     player: Player.X,
     rows: List.times(3, fn () { List.times(3, fn () { None }) }),
@@ -259,7 +259,7 @@ We create a `game` with the initial player being X.
 We initialize the grid with a fancy expression that creates our nested lists.
 This might be a little tricky to read, so let's add some whitespace and comments to help see what's happening:
 
-```oxiby
+```ybixo
 // Create outer list (rows)
 List.times(
     3, // Create three rows
@@ -279,7 +279,7 @@ List.times(
 `List.times` is a static method on `List` from the standard library that allows us to create a list of a known size and to populate each of its elements with a known value.
 Here's its signature:
 
-```oxiby
+```ybixo
 fn times(n: Integer, f: f) -> List<t> where f: Fn() -> t
 ```
 
@@ -291,7 +291,7 @@ The value of the elements in the inner list (our columns/cells) begins as `None`
 
 ### Printing the board
 
-```oxiby
+```ybixo
 loop {
     print_line("Game board:")
 
@@ -323,7 +323,7 @@ After each row, we print a blank line so that each row of cells will appear on i
 
 ### Checking the win condition
 
-```oxiby
+```ybixo
 match game.winner() {
     Winner.Player(player) -> {
         print_line("The winner is #{player}!")
@@ -350,7 +350,7 @@ We `match` on this `Winner` to decide what to do:
 
 Here's the definition of the `winner` method, which determines the win condition, if any:
 
-```oxiby
+```ybixo
 fn winner(self) -> Winner {
     for row in (0..2) {
         match (self.rows[row][0], self.rows[row][1], self.rows[row][2]) {
@@ -423,7 +423,7 @@ Finally:
 
 Let's look at one of these checks in a little more detail to see how it's done:
 
-```oxiby
+```ybixo
 for row in (0..2) {
     match (self.rows[row][0], self.rows[row][1], self.rows[row][2]) {
         (Some(a), Some(b), Some(c)) -> {
@@ -448,7 +448,7 @@ In each iteration, we `match` against a tuple of each cell in that row.
 `self.rows` is the list of rows, `[row]` takes the row we want to check from the list, and then the `[0]`, `[1]`, and `[2]` indexes get the value of the first, second, and third column of that row.
 The type of each cell is `Option<Player>` so we're matching on a value of this type:
 
-```oxiby
+```ybixo
 (Option<Player>, Option<Player>, Option<Player>)
 ```
 
@@ -461,7 +461,7 @@ That case just evaluates to an empty tuple (unit) and does nothing.
 
 The last part of our game is the logic that reads input from the current player and tries to mark the cell they choose.
 
-```oxiby
+```ybixo
 loop {
     print("It's #{game.player}'s turn. Enter the cell to play (1-9): ")
 
@@ -501,14 +501,14 @@ The inner loop then starts again, and continues the same process until the playe
 
 > **Warning: `s.to_i` is just Ruby's `String#to_i` method exposed directly, which does loose conversions like parsing `"a"` as `0`.
 > This program is written assuming the input will always successfully parse into a valid integer, but that isn't guaranteed.
-> In the future, Oxiby will provide a safer technique for parsing integers from strings.**
+> In the future, Ybixo will provide a safer technique for parsing integers from strings.**
 
 ### Choosing a cell
 
 The last piece of code to look at is the definition of the `choose` method.
 Again, this method's job is to try placing a player's mark in the given grid cell, and then returning a boolean value to indicate whether or not it succeeded.
 
-```oxiby
+```ybixo
 fn choose(self, cell: Integer, player: Player) -> Boolean {
     if !(1..9).contains(cell) {
         return false

@@ -2,11 +2,11 @@
 
 Many programming languages have a construct that represents the absence of data, often called null or nil.
 This is used as a placeholder for things that contain data under certain conditions, but don't always.
-Oxiby doesn't have a dedicated type for this.
+Ybixo doesn't have a dedicated type for this.
 Instead, it uses an enum named `Option` to represent a value that might be present or might not.
 Let's look at the definition of the type.
 
-```oxiby
+```ybixo
 enum Option<t> {
     Some(t),
     None,
@@ -23,23 +23,23 @@ We still haven't talked in detail about generics, but for now, note that `Option
 The `<t>` is used to indicate this.
 Here are some examples of constructing `Option`s:
 
-```oxiby
-let some_string = Option.Some("Oxiby")
+```ybixo
+let some_string = Option.Some("Ybixo")
 let some_integer = Option.Some(123)
 let none = Option.None
 ```
 
 Like `Result`, because `Option` is so widely used, its variants are available to use directly, so we should write this instead:
 
-```oxiby
-let some_string = Some("Oxiby")
+```ybixo
+let some_string = Some("Ybixo")
 let some_integer = Some(123)
 let none = None
 ```
 
 In the last chapter, we asked what indexing into a hash map evaluated to:
 
-```oxiby
+```ybixo
 let shopping_list = ["apple": 3, "banana": 1, "carrot": 2]
 shopping_list["carrot"]
 ```
@@ -48,7 +48,7 @@ The answer is `Some(2)`, a value of type `Option<Integer>`.
 We might think it should just be `Integer`, since we can clearly see that we associated `"carrot"` with `2` when creating the hash map on the previous line.
 But if that was the case, what would the indexing operation return for a key that had no value associated with it?
 
-```oxiby
+```ybixo
 shopping_list["beans"] // ???
 ```
 
@@ -59,7 +59,7 @@ Using an enum, we're able to return one of two variants which are both values of
 
 With `Option` we can safely handle hash map indexing by `match`ing on an optional value:
 
-```oxiby
+```ybixo
 fn food_count(shopping_list: HashMap<String, Integer>, food: String) {
     match shopping_list[food] {
         Some(quantity) => print_line("Buy #{quantity} #{food}."),
@@ -83,7 +83,7 @@ This enforcement reduces bugs in our programs because we can't simply forget to 
 
 Recall that when we learned about lists, we learned that indexing into a list uses the same square bracket syntax as indexing into a hash map, only with an integer offset rather than a key name:
 
-```oxiby
+```ybixo
 let fruits = ["apple", "banana", "carrot"]
 fruits[0] // "apple"
 ```
@@ -91,4 +91,4 @@ fruits[0] // "apple"
 It's worth noting that currently, this operation does _not_ return an `Option`, as it does for hash maps, even though it's the same idea, conceptually.
 Instead, accessing an array index that is out of bounds (e.g. `fruits[3]` above) will cause an error when the program actually runs.
 This is primarily for convenience, since manual bounds checking on every list index would add a lot of extra code when working with nested lists.
-However, this is likely to change to a safer construct in a future revision of Oxiby.
+However, this is likely to change to a safer construct in a future revision of Ybixo.

@@ -1,30 +1,30 @@
 # Introduction
 
-**Oxiby** is a statically typed programming language inspired primarily by [Rust](https://www.rust-lang.org/).
-Oxiby programs compile into readable [Ruby](https://www.ruby-lang.org/) source code, which can then be executed by the Ruby interpreter.
+**Ybixo** is a statically typed programming language inspired primarily by [Rust](https://www.rust-lang.org/).
+Ybixo programs compile into readable [Ruby](https://www.ruby-lang.org/) source code, which can then be executed by the Ruby interpreter.
 
 The language was motivated by the question:
 
 **What if a developer wants the high-level features of Rust, but does not need its low-level features, and maximal performance is not a requirement?**
 
-Oxiby is free software.
-You can find its source code for reading and modification in its repository on GitHub: [https://github.com/oxiby/oxiby](https://github.com/oxiby/oxiby)
+Ybixo is free software.
+You can find its source code for reading and modification in its repository on GitHub: [https://github.com/ybixo/ybixo](https://github.com/ybixo/ybixo)
 
-## A quick taste of Oxiby
+## A quick taste of Ybixo
 
-Here's what Oxiby looks like:
+Here's what Ybixo looks like:
 
-```oxiby
+```ybixo
 fn greet(name: String) -> String {
   "Hello, #{name}!"
 }
 
 fn main() {
-  print_line(greet("Oxiby"))
+  print_line(greet("Ybixo"))
 }
 ```
 
-Given a file named `intro.ob` with this source code, the Oxiby compiler produces the following Ruby:
+Given a file named `intro.ob` with this source code, the Ybixo compiler produces the following Ruby:
 
 ```ruby
 # frozen_string_literal: true
@@ -37,7 +37,7 @@ module Intro
   end
 
   def self.main
-    ::Std::Io.print_line(greet("Oxiby"))
+    ::Std::Io.print_line(greet("Ybixo"))
   end
 
   main
@@ -46,7 +46,7 @@ end
 
 ## Features
 
-Oxiby offers the following features for productive programming:
+Ybixo offers the following features for productive programming:
 
 * Static typing with type inference
 * Parametric polymorphism (generic programming)
@@ -58,18 +58,18 @@ Oxiby offers the following features for productive programming:
 ## Audience
 
 The book is suitable for readers with or without programming experience.
-As such, many fundamental programming concepts are explained alongside their implementation in Oxiby.
+As such, many fundamental programming concepts are explained alongside their implementation in Ybixo.
 
 ## Caveats
 
-Oxiby is an experimental language and is not intended for use in production projects.
+Ybixo is an experimental language and is not intended for use in production projects.
 
 Although it compiles to Ruby, it is not intended to be interoperable with existing Ruby programs.
 
 The language is in early development and many features are not yet implemented.
 As such, some of the behavior described in this book is aspirational.
 The plan is to implement the language as described in the book, so anything described here will be supported eventually.
-That said, all syntactically valid Oxiby source code should compile into equivalent Ruby, but the compiler will allow programs that shouldn't pass type checking, and Oxiby code can "escape" into Ruby not exposed by Oxiby.
+That said, all syntactically valid Ybixo source code should compile into equivalent Ruby, but the compiler will allow programs that shouldn't pass type checking, and Ybixo code can "escape" into Ruby not exposed by Ybixo.
 
 All the example programs shown in the book will compile and produce the expected behavior when run, with certain exceptions as noted.
 
