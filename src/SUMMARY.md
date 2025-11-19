@@ -1,11 +1,8 @@
-# Summary
-
 [Introduction](README.md)
-[Oxiby compared to Rust and Ruby](comparison.md)
 [Conventions](conventions.md)
 [Installation](installation.md)
 
-# Language Guide
+---
 
 - [Writing your first Oxiby program](guide/first.md)
 - [Using functions and variables](guide/functions.md)
@@ -24,42 +21,6 @@
 - [Writing tic-tac-toe in Oxiby](guide/game.md)
 - [Exploring Oxiby further](guide/conclusion.md)
 
-# Standard Library
+---
 
-- [io]()
-- [list]()
-- [ops]()
-- [option]()
-- [result]()
-
-# Language Reference
-
-- [Modules]()
-- [Items]()
-  - [Imports]()
-  - [Structs]()
-  - [Enums]()
-  - [Traits]()
-  - [Implementations]()
-  - [Functions]()
-- [Core types]()
-  - [Booleans]()
-  - [Integers]()
-  - [Floats]()
-  - [Strings]()
-  - [Ranges]()
-  - [Tuples]()
-  - [Lists]()
-  - [Hash maps]()
-  - [Closures]()
-- [Expressions]()
-  - [Let bindings]()
-  - [Operations]()
-  - [Loops]()
-  - [Conditions]()
-  - [Function calls]()
-  - [Blocks]()
-  - [Constructors]()
-  - [Field access]()
-  - [Matches]()
-  - [Patterns]()
+[Oxiby compared to Rust and Ruby](comparison.md)
