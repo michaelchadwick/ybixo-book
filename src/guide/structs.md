@@ -112,7 +112,7 @@ These are functions that initialize a new value of the type:
 struct ShoppingList {
     map: HashMap<String, Integer>,
 
-    fn new() {
+    fn new() -> Self {
         Self {
             map: ["apple": 3, "banana": 1, "carrot": 2],
         }
@@ -195,7 +195,7 @@ Just like structs with named fields, tuple structs can have both instance method
 
 ```oxiby
 struct Name(String, String) {
-    fn new(first_name: String, last_name: String) {
+    fn new(first_name: String, last_name: String) -> Self {
         Self(first_name, last_name)
     }
 
